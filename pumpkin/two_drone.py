@@ -51,6 +51,8 @@ while True:
 			dead1.append(dead[di])
 		else:
 			dead2.append(dead[di])
+	def sort_by_y(item):
+		return item[1]
 	
 	def drone2():
 		dead1 = dead2
