@@ -16,7 +16,7 @@ def goto(i, j):
 	else:
 		move_n_dir(-diff_y, North)
 
-def clean_the_land(ground = Grounds.Soil, total_drone = 4):
+def clean_the_land(ground = Grounds.Soil, total_drone = 4, entity = None):
 	size = get_world_size()
 
 	start_i = 0
@@ -32,6 +32,8 @@ def clean_the_land(ground = Grounds.Soil, total_drone = 4):
 				till()
 			if get_ground_type() != ground:
 				till()
+			if entity != None:
+				plant(entity)
 			j += 1
 			move(North)
 			if j % size == 0:
