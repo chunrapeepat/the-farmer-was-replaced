@@ -46,6 +46,7 @@ def clean_the_land(ground = Grounds.Soil, total_drone = 4, entity = None):
 		start_i = i * (size // total_drone)
 		end_i = start_i + (size // total_drone - 1)
 		if i == total_drone - 1:
+			end_i = size - 1
 			clean_area()
 		else:
 			spawn_drone(clean_area)

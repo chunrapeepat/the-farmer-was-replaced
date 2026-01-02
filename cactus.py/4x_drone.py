@@ -7,15 +7,35 @@ utils.goto(0, 0)
 utils.clean_the_land(entity=Entities.Cactus)
 
 while True:
-	harvest()
-	plant(Entities.Cactus)
-	
-	if i == 7 and not is_drone2_swap:
-		spawn_drone(drone2)
-	
-	j += 1
-	move(North)
-	if j % size == 0:
-		i += 1
-		j = 0
-		move(East)
+    row = 0
+    def bubble_sort():
+			arr = []
+			j = 0
+			utils.goto(row, 0)
+			while j < size:
+				arr.append(measure())
+				move(North)
+				j += 1
+			# now you're at the start of the row
+			j = 0
+			while j < size - 1:
+				if arr[j] > arr[j+1]:
+					swap(North)
+					# swap actual arr
+					tmp = arr[j+1]
+					arr[j+1] = arr[j]
+					arr[j] = tmp
+					# move back 1 step
+					if j == 0:
+						move(North)
+						j += 1
+						continue
+					else:
+						j -= 1
+						move(South)
+				else:
+					move(North)
+					j += 1
+
+    bubble_sort()
+    break
