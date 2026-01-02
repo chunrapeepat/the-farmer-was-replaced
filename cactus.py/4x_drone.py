@@ -54,9 +54,9 @@ while True:
 					continue
 				wait_for(t)
 		
-	for index in tasks:
-		if tasks[index] != None:
-			wait_for(tasks[index])
+	for drone in tasks:
+		if drone != None:
+			wait_for(drone)
 
 	col = 0
 	def bubble_sort_horizontally():
