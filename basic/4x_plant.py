@@ -4,7 +4,9 @@ harvest()
 
 total_drone = 4
 ground = Grounds.Soil
-entity = Entities.Carrot
+entity = Entities.Tree
+water = 6
+delay = 10
 
 size = get_world_size()
 utils.goto(0, 0)
@@ -17,7 +19,7 @@ def harvest_and_plant():
 	while True:
 		harvest()
 		plant(entity)
-		use_item(Items.Water, 1)		
+		use_item(Items.Water, water)		
 		j += 1
 		move(North)
 		if j % size == 0:
@@ -26,8 +28,8 @@ def harvest_and_plant():
 			move(East)
 
 for i in range(total_drone - 1):
-  spawn_drone(harvest_and_plant)
-  do_a_flip()
-  do_a_flip()
+	spawn_drone(harvest_and_plant)
+	for i in range(delay):
+		do_a_flip()
 
 harvest_and_plant()
