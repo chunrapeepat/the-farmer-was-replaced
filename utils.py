@@ -1,4 +1,4 @@
-def clean_the_land(ground = Grounds.Soil):
+def clean_the_land(ground = Grounds.Soil, total_drone = 4):
 	i = 0
 	j = 0
 	size = get_world_size()
